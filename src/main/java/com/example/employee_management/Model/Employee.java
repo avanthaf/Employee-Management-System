@@ -6,10 +6,10 @@ public class Employee {
     String departmentName;
     String role;
 
-    public Employee(String departmentName, String employeeName, Long id, String role) {
-        this.departmentName = departmentName;
-        this.employeeName = employeeName;
+    public Employee(Long id, String employeeName, String departmentName, String role) {
         this.id = id;
+        this.employeeName = employeeName;
+        this.departmentName = departmentName;
         this.role = role;
     }
 
