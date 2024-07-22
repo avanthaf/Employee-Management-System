@@ -22,9 +22,11 @@ public class EmployeeServices {
         return employeeRepository.findById(id).orElse(null);
     }
 
-    public Employee savEmployee(Employee employee){
+    public Employee saveEmployee(Employee employee){
         return employeeRepository.save(employee);
     }
 
-    
+    public void deleteEmployee(Long id) {
+        employeeRepository.deleteById(id);
+    }
 }
