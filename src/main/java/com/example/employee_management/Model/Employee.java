@@ -24,6 +24,9 @@ public class Employee {
     @Column
     String role;
 
+    public Employee() {
+    }
+
     public Employee(Long id, String employeeName, String departmentName, String role) {
         this.id = id;
         this.employeeName = employeeName;

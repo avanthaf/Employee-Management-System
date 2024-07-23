@@ -23,22 +23,22 @@ public class EmployeeController {
     @Autowired
     private EmployeeServices employeeServices;
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Employee> getAllEmployees(){
         return employeeServices.getAllEmployees();
     }
 
-    @GetMapping("/{ID}")
-    public Employee getEmployeeById(Long id){
+    @GetMapping("/{id}")
+    public Employee getEmployeeById(@PathVariable Long id){
         return employeeServices.getEmployeeById(id);
     }
 
-    @PostMapping
-    public Employee createEmployee(Employee employee){
+    @PostMapping("/create")
+    public Employee createEmployee(@RequestBody Employee employee){
         return employeeServices.saveEmployee(employee);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public Employee updateEmployee(@PathVariable Long id, @RequestBody Employee employee) {
         Employee existingEmployee = employeeServices.getEmployeeById(id);
         if (existingEmployee != null) {
@@ -51,7 +51,7 @@ public class EmployeeController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteEmployee(@PathVariable Long id) {
         employeeServices.deleteEmployee(id);
     }
